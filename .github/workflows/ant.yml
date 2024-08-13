@@ -1,0 +1,46 @@
+# This workflow will build a Java project with Ant
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-ant
+
+name: Build and Release JAR
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'adopt'
+        java-version: '17'
+
+    - name: Cache Ant dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.ant/cache
+        key: ${{ runner.os }}-ant-${{ hashFiles('build.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-ant-
+
+    - name: Install Ant
+      run: sudo apt-get install -y ant
+
+    - name: Build with Ant
+      run: ant clean create-fat-jar
+
+    - name: Upload JAR as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: pokedex-fat-jar
+        path: dist/pokedex-fat.jar
