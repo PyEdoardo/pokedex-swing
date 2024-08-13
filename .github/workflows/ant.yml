@@ -42,5 +42,5 @@ jobs:
     - name: Upload JAR as artifact
       uses: actions/upload-artifact@v3
       with:
-        name: pokedex-fat-jar
-        path: dist/pokedex-fat.jar
+        name: pokedex-jar
+        path: dist/pokedex.jar
