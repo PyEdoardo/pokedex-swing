@@ -31,7 +31,7 @@
         <mkdir dir="${dist.dir}"/>
 
         <!-- Criação do manifest -->
-        <jar destfile="${dist.dir}/pokedex-fat.jar" basedir="${build.dir}">
+        <jar destfile="${dist.dir}/pokedex.jar" basedir="${build.dir}">
             <manifest>
                 <attribute name="Main-Class" value="${main-class}"/>
             </manifest>
