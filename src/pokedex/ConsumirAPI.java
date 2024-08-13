@@ -20,6 +20,7 @@ public class ConsumirAPI {
     private int weight;
     private String imageUrl;
     private List<String> soundUrls;
+    private String geracao;
 
     public ConsumirAPI(String tipoPesquisa, String pesquisa) {
         types = new ArrayList<>();
@@ -62,6 +63,9 @@ public class ConsumirAPI {
 
                 // Peso
                 this.weight = jsonObject.getInt("weight");
+                
+                
+                
 
                 // URL da Imagem
                 this.imageUrl = jsonObject.getJSONObject("sprites").getString("front_default");
@@ -71,7 +75,9 @@ public class ConsumirAPI {
                 soundUrls.add(criesObject.getString("legacy"));
 
             } else {
-                JOptionPane.showMessageDialog(null, response.code());
+                if(response.code() == 404){
+                    JOptionPane.showMessageDialog(null, "Pokemon não encontrado!");
+                }
                 System.out.println("Erro na conexão: " + response.code());
             }
         } catch (Exception e) {
@@ -101,7 +107,6 @@ public class ConsumirAPI {
         return null;
     }
 
-    // Getters para acessar os dados do Pokémon
     public String getName() {
         return name;
     }
@@ -124,5 +129,9 @@ public class ConsumirAPI {
 
     public String getImageUrl() {
         return imageUrl;
+    }
+    
+    public String getGeracao(){
+        return null;
     }
 }

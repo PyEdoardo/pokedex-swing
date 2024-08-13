@@ -39,14 +39,13 @@ public class Pokedex extends javax.swing.JFrame {
         botaoPesquisa = new javax.swing.JButton();
         labelImagem = new javax.swing.JLabel();
         labelNomePokemon = new javax.swing.JLabel();
-        labelAltura = new javax.swing.JLabel();
-        labelTipoPokemon1 = new javax.swing.JLabel();
+        labelMovimentos = new javax.swing.JLabel();
+        labelTipoPokemon = new javax.swing.JLabel();
         labelPeso = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         audiosPokemon = new javax.swing.JComboBox<>();
         sliderAudio = new javax.swing.JSlider();
         jLabel2 = new javax.swing.JLabel();
-        labelGeracao = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         botaoSobre = new javax.swing.JMenuItem();
@@ -87,11 +86,11 @@ public class Pokedex extends javax.swing.JFrame {
         labelNomePokemon.setBackground(new java.awt.Color(40, 40, 40));
         labelNomePokemon.setOpaque(true);
 
-        labelAltura.setBackground(new java.awt.Color(40, 40, 40));
-        labelAltura.setOpaque(true);
+        labelMovimentos.setBackground(new java.awt.Color(40, 40, 40));
+        labelMovimentos.setOpaque(true);
 
-        labelTipoPokemon1.setBackground(new java.awt.Color(40, 40, 40));
-        labelTipoPokemon1.setOpaque(true);
+        labelTipoPokemon.setBackground(new java.awt.Color(40, 40, 40));
+        labelTipoPokemon.setOpaque(true);
 
         labelPeso.setBackground(new java.awt.Color(40, 40, 40));
         labelPeso.setOpaque(true);
@@ -114,9 +113,6 @@ public class Pokedex extends javax.swing.JFrame {
 
         jLabel2.setText("Volume");
         jLabel2.setEnabled(false);
-
-        labelGeracao.setBackground(new java.awt.Color(40, 40, 40));
-        labelGeracao.setOpaque(true);
 
         jMenu1.setText("File");
 
@@ -165,34 +161,28 @@ public class Pokedex extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(labelPeso, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
                         .addComponent(labelNomePokemon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labelTipoPokemon1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labelAltura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(labelTipoPokemon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(labelMovimentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(labelImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
+                        .addComponent(sliderAudio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(audiosPokemon, javax.swing.GroupLayout.Alignment.LEADING, 0, 110, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(sliderAudio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(audiosPokemon, javax.swing.GroupLayout.Alignment.LEADING, 0, 110, Short.MAX_VALUE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(pesquisaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(tiposPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(botaoPesquisa))
-                                .addGap(54, 54, 54))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(labelGeracao, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addComponent(pesquisaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(tiposPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(botaoPesquisa))
+                        .addGap(54, 54, 54))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,13 +210,11 @@ public class Pokedex extends javax.swing.JFrame {
                     .addComponent(labelNomePokemon, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sliderAudio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
-                .addComponent(labelTipoPokemon1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelTipoPokemon, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(labelPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(labelGeracao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(labelAltura, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
+                .addComponent(labelMovimentos, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
@@ -271,17 +259,47 @@ public class Pokedex extends javax.swing.JFrame {
        if (audiosPokemon.getItemCount() >= 1){
            audiosPokemon.removeAllItems();
        }
+       if (labelTipoPokemon.getText() != null){
+           labelTipoPokemon.setText("");
+       }
+       if (labelMovimentos.getText() != null){
+           labelMovimentos.setText("");
+       }
        BufferedImage image = pokemonData.getImage();
+       String geracao = pokemonData.getGeracao();
        ImageIcon imageIcon = new ImageIcon(image);
+       List<String> movimentos = pokemonData.getMoves();
        labelNomePokemon.setText("Nome: " + Utilidades.capitalizeFirstLetter(pokemonData.getName()));
        List<String> tipos = pokemonData.getTypes();
        List<String> soundUrls = pokemonData.getSoundUrls();
-       labelAltura.setText("");
+       int i = 1;
+       for (String movimento : movimentos){
+           while (i <= 2){
+           if (labelMovimentos.getText().equals("")){
+               labelMovimentos.setText("Movimentos: " + Utilidades.capitalizeFirstLetter(movimento));
+               i++;
+           } else{
+               String movimentoAnterior = labelMovimentos.getText();
+               labelMovimentos.setText(movimentoAnterior + "\n" + Utilidades.capitalizeFirstLetter(movimento));
+               i++;
+           }
+           }
+       }
+       for (String tipo : tipos) {
+           if (labelTipoPokemon.getText() == ""){
+               labelTipoPokemon.setText("Tipos: \n" + Utilidades.capitalizeFirstLetter(tipo));
+           } else{
+               String textoAnterior = labelTipoPokemon.getText();
+               labelTipoPokemon.setText("\n" + Utilidades.capitalizeFirstLetter(textoAnterior) + Utilidades.capitalizeFirstLetter(tipo));
+           }
+       }
        labelImagem.setIcon(imageIcon);
-       labelPeso.setText(String.valueOf(pokemonData.getWeight()));
+       labelPeso.setText("Peso: " + String.valueOf(pokemonData.getWeight()) + "kg");
+       System.out.println(geracao);
        for (String audio : soundUrls){
            audiosPokemon.addItem(audio);
        }
+       
     }
     private void botaoPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisaActionPerformed
         String tipoPesquisa = getTipoPesquisa();
@@ -371,12 +389,11 @@ public class Pokedex extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JLabel labelAltura;
-    private javax.swing.JLabel labelGeracao;
     private javax.swing.JLabel labelImagem;
+    private javax.swing.JLabel labelMovimentos;
     private javax.swing.JLabel labelNomePokemon;
     private javax.swing.JLabel labelPeso;
-    private javax.swing.JLabel labelTipoPokemon1;
+    private javax.swing.JLabel labelTipoPokemon;
     private javax.swing.JTextField pesquisaLabel;
     private javax.swing.JSlider sliderAudio;
     private javax.swing.JComboBox<String> tiposPesquisa;

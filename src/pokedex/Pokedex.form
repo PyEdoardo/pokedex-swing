@@ -84,44 +84,35 @@
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Component id="labelPeso" alignment="0" pref="263" max="32767" attributes="0"/>
                       <Component id="labelNomePokemon" max="32767" attributes="0"/>
-                      <Component id="labelTipoPokemon1" max="32767" attributes="0"/>
-                      <Component id="labelAltura" max="32767" attributes="0"/>
+                      <Component id="labelTipoPokemon" max="32767" attributes="0"/>
+                      <Component id="labelMovimentos" max="32767" attributes="0"/>
                   </Group>
                   <Component id="labelImagem" min="-2" pref="263" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="sliderAudio" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="sliderAudio" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel1" min="-2" pref="223" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="audiosPokemon" alignment="0" pref="110" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace pref="52" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="pesquisaLabel" min="-2" pref="293" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="tiposPesquisa" min="-2" pref="112" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="botaoPesquisa" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" pref="223" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
+                              <Component id="audiosPokemon" alignment="0" pref="110" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="labelGeracao" min="-2" pref="246" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace pref="52" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="pesquisaLabel" min="-2" pref="293" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="tiposPesquisa" min="-2" pref="112" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="botaoPesquisa" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -160,14 +151,11 @@
                   <Component id="sliderAudio" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-              <Component id="labelTipoPokemon1" min="-2" pref="41" max="-2" attributes="0"/>
+              <Component id="labelTipoPokemon" min="-2" pref="41" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Component id="labelPeso" min="-2" pref="41" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="labelGeracao" max="32767" attributes="0"/>
-                  <Component id="labelAltura" pref="41" max="32767" attributes="0"/>
-              </Group>
+              <Component id="labelMovimentos" min="-2" pref="41" max="-2" attributes="0"/>
               <EmptySpace pref="47" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -225,7 +213,7 @@
         <Property name="opaque" type="boolean" value="true"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labelAltura">
+    <Component class="javax.swing.JLabel" name="labelMovimentos">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="28" green="28" red="28" type="rgb"/>
@@ -233,7 +221,7 @@
         <Property name="opaque" type="boolean" value="true"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labelTipoPokemon1">
+    <Component class="javax.swing.JLabel" name="labelTipoPokemon">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="28" green="28" red="28" type="rgb"/>
@@ -280,14 +268,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Volume"/>
         <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labelGeracao">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="28" green="28" red="28" type="rgb"/>
-        </Property>
-        <Property name="opaque" type="boolean" value="true"/>
       </Properties>
     </Component>
   </SubComponents>
