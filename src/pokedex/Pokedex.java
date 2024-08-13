@@ -4,11 +4,13 @@
  */
 package pokedex;
 import com.formdev.flatlaf.themes.*;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import javax.swing.*;
-import pokedex.ConsumirAPI.*;
 import java.util.List;
-import pokedex.Audio.*;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 /**
  *
  * @author edoar
@@ -22,6 +24,13 @@ public class Pokedex extends javax.swing.JFrame {
      */
     public Pokedex() {
         initComponents();
+        try {
+        // Carregando o ícone da pasta resource
+        ImageIcon icon = new ImageIcon(getClass().getResource("/resources/icon.png"));
+        setIconImage(icon.getImage());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
     }
     
     /**
@@ -343,7 +352,7 @@ public class Pokedex extends javax.swing.JFrame {
         String tipoPesquisa = pokedex.getTipoPesquisa(); // Obtém o valor do JComboBox
         String pesquisa = pokedex.getPesquisa(); // Obtém o valor do JTextField
 
-        
+
         
         try {
             UIManager.setLookAndFeel(new FlatMacDarkLaf());
@@ -367,7 +376,6 @@ public class Pokedex extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Pokedex.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
