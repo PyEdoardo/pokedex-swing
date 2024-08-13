@@ -285,7 +285,7 @@ public class Pokedex extends javax.swing.JFrame {
        for (String movimento : movimentos){
            while (i <= 2){
            if (labelMovimentos.getText().equals("")){
-               labelMovimentos.setText("Movimentos: " + Utilidades.capitalizeFirstLetter(movimento));
+               labelMovimentos.setText("\nMovimentos: " + Utilidades.capitalizeFirstLetter(movimento));
                i++;
            } else{
                String movimentoAnterior = labelMovimentos.getText();
@@ -308,7 +308,6 @@ public class Pokedex extends javax.swing.JFrame {
        for (String audio : soundUrls){
            audiosPokemon.addItem(audio);
        }
-       
     }
     private void botaoPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisaActionPerformed
         String tipoPesquisa = getTipoPesquisa();
