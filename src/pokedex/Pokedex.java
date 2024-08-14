@@ -341,7 +341,7 @@ public class Pokedex extends javax.swing.JFrame {
     }//GEN-LAST:event_sliderAudioStateChanged
 
     private void menuSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSalvarActionPerformed
-        ExportarTxt exportarTxt = new ExportarTxt();
+        ExportarTxt exportarTxt = new ExportarTxt("pokemon", pesquisaLabel.getText());
         exportarTxt.salvarTxt();
     }//GEN-LAST:event_menuSalvarActionPerformed
     private class retornoPesquisaTipo{
