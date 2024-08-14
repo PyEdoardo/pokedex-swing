@@ -4,13 +4,9 @@
  */
 package pokedex;
 import com.formdev.flatlaf.themes.*;
-import java.awt.Image;
 import java.awt.image.BufferedImage;
 import javax.swing.*;
 import java.util.List;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 /**
  *
  * @author edoar
@@ -58,6 +54,7 @@ public class Pokedex extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         botaoSobre = new javax.swing.JMenuItem();
+        menuSalvar = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         botaoTemaBranco = new javax.swing.JMenuItem();
@@ -132,6 +129,14 @@ public class Pokedex extends javax.swing.JFrame {
             }
         });
         jMenu1.add(botaoSobre);
+
+        menuSalvar.setText("Salvar em Texto");
+        menuSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuSalvarActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menuSalvar);
 
         jMenuBar1.add(jMenu1);
 
@@ -334,7 +339,21 @@ public class Pokedex extends javax.swing.JFrame {
          int volume = sliderAudio.getValue();
          audioPlayer.setVolume(volume);
     }//GEN-LAST:event_sliderAudioStateChanged
-    
+
+    private void menuSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSalvarActionPerformed
+        ExportarTxt exportarTxt = new ExportarTxt();
+        exportarTxt.salvarTxt();
+    }//GEN-LAST:event_menuSalvarActionPerformed
+    private class retornoPesquisaTipo{
+        String pesquisa = pesquisaLabel.getText();
+        String tipoPesquisa = "pokemon";
+        public String retornoPesquisa(){
+            return pesquisa;
+        }
+        public String retornoTipoPesquisa(){
+            return tipoPesquisa;
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -401,6 +420,7 @@ public class Pokedex extends javax.swing.JFrame {
     private javax.swing.JLabel labelNomePokemon;
     private javax.swing.JLabel labelPeso;
     private javax.swing.JLabel labelTipoPokemon;
+    private javax.swing.JMenuItem menuSalvar;
     private javax.swing.JTextField pesquisaLabel;
     private javax.swing.JSlider sliderAudio;
     private javax.swing.JComboBox<String> tiposPesquisa;
