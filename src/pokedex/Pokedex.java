@@ -354,7 +354,7 @@ public class Pokedex extends javax.swing.JFrame {
         String pesquisa = getPesquisa();
         ConsumirAPI pokemonData = new ConsumirAPI(tipoPesquisa, pesquisa);
         atualizarInterface(pokemonData);
-        
+        System.out.println(pokemonData);
     }//GEN-LAST:event_botaoPesquisaActionPerformed
     
     private void pesquisaLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaLabelActionPerformed
