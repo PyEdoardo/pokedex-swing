@@ -5,13 +5,13 @@ import okhttp3.Request;
 import okhttp3.Response;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.InputStream;
 import javax.swing.JOptionPane;
+
 public class ConsumirAPI {
 
     private String name;
@@ -21,6 +21,7 @@ public class ConsumirAPI {
     private String imageUrl;
     private List<String> soundUrls;
     private String geracao;
+    private int height;
 
     public ConsumirAPI(String tipoPesquisa, String pesquisa) {
         types = new ArrayList<>();
@@ -64,6 +65,7 @@ public class ConsumirAPI {
                 // Peso
                 this.weight = jsonObject.getInt("weight");
                 
+                this.height = jsonObject.getInt("height");
                 
                 
 
@@ -132,6 +134,10 @@ public class ConsumirAPI {
     }
     
     public String getGeracao(){
-        return null;
+        return geracao;
+    }
+    
+    public int getAltura(){
+        return height;
     }
 }
