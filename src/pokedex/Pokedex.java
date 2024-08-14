@@ -7,6 +7,8 @@ import com.formdev.flatlaf.themes.*;
 import java.awt.image.BufferedImage;
 import javax.swing.*;
 import java.util.List;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 /**
  *
  * @author edoar
@@ -15,6 +17,7 @@ public class Pokedex extends javax.swing.JFrame {
     int indexPesquisa;
     String pesquisa;
     private Audio audioPlayer = new Audio();
+    
     /**
      * Creates new form Pokedex
      */
@@ -39,6 +42,7 @@ public class Pokedex extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuItem1 = new javax.swing.JMenuItem();
+        jLabel3 = new javax.swing.JLabel();
         pesquisaLabel = new javax.swing.JTextField();
         tiposPesquisa = new javax.swing.JComboBox<>();
         botaoPesquisa = new javax.swing.JButton();
@@ -51,6 +55,8 @@ public class Pokedex extends javax.swing.JFrame {
         audiosPokemon = new javax.swing.JComboBox<>();
         sliderAudio = new javax.swing.JSlider();
         jLabel2 = new javax.swing.JLabel();
+        jProgressBar1 = new javax.swing.JProgressBar();
+        jLabel4 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         botaoSobre = new javax.swing.JMenuItem();
@@ -61,6 +67,8 @@ public class Pokedex extends javax.swing.JFrame {
         botaoTemaEscuro = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
+
+        jLabel3.setText("jLabel3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -119,6 +127,11 @@ public class Pokedex extends javax.swing.JFrame {
 
         jLabel2.setText("Volume");
         jLabel2.setEnabled(false);
+
+        jProgressBar1.setMaximum(200);
+
+        jLabel4.setText("Altura:");
+        jLabel4.setEnabled(false);
 
         jMenu1.setText("File");
 
@@ -196,7 +209,12 @@ public class Pokedex extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(tiposPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(botaoPesquisa))
-                        .addGap(54, 54, 54))))
+                        .addGap(54, 54, 54))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,9 +241,17 @@ public class Pokedex extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelNomePokemon, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sliderAudio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addComponent(labelTipoPokemon, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(labelTipoPokemon, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)))
+                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
                 .addComponent(labelPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59)
                 .addComponent(labelMovimentos, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -286,7 +312,15 @@ public class Pokedex extends javax.swing.JFrame {
        labelNomePokemon.setText("Nome: " + Utilidades.capitalizeFirstLetter(pokemonData.getName()));
        List<String> tipos = pokemonData.getTypes();
        List<String> soundUrls = pokemonData.getSoundUrls();
+       int altura = pokemonData.getAltura();
        int i = 1;
+       jProgressBar1.addMouseMotionListener(new MouseAdapter() {
+            @Override
+            public void mouseMoved(MouseEvent e) {
+                // Configurando o tooltip para mostrar o valor atual
+                jProgressBar1.setToolTipText("Valor atual: " + jProgressBar1.getValue() + "m");
+            }
+        });
        for (String movimento : movimentos){
            while (i <= 2){
            if (labelMovimentos.getText().equals("")){
@@ -309,6 +343,7 @@ public class Pokedex extends javax.swing.JFrame {
        }
        labelImagem.setIcon(imageIcon);
        labelPeso.setText("Peso: " + String.valueOf(pokemonData.getWeight()) + "kg");
+       jProgressBar1.setValue(altura);
        System.out.println(geracao);
        for (String audio : soundUrls){
            audiosPokemon.addItem(audio);
@@ -321,7 +356,7 @@ public class Pokedex extends javax.swing.JFrame {
         atualizarInterface(pokemonData);
         
     }//GEN-LAST:event_botaoPesquisaActionPerformed
-
+    
     private void pesquisaLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaLabelActionPerformed
         pesquisa = pesquisaLabel.getText();
     }//GEN-LAST:event_pesquisaLabelActionPerformed
@@ -410,11 +445,14 @@ public class Pokedex extends javax.swing.JFrame {
     private javax.swing.JMenuItem botaoTemaEscuro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JLabel labelImagem;
     private javax.swing.JLabel labelMovimentos;
     private javax.swing.JLabel labelNomePokemon;

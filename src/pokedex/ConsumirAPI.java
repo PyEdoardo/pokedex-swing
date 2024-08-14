@@ -21,6 +21,7 @@ public class ConsumirAPI {
     private String imageUrl;
     private List<String> soundUrls;
     private String geracao;
+    private int height;
 
     public ConsumirAPI(String tipoPesquisa, String pesquisa) {
         types = new ArrayList<>();
@@ -64,6 +65,7 @@ public class ConsumirAPI {
                 // Peso
                 this.weight = jsonObject.getInt("weight");
                 
+                this.height = jsonObject.getInt("height");
                 
                 
 
@@ -132,6 +134,10 @@ public class ConsumirAPI {
     }
     
     public String getGeracao(){
-        return null;
+        return geracao;
+    }
+    
+    public int getAltura(){
+        return height;
     }
 }
